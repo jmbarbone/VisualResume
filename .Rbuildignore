@@ -1,2 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.Rmd$
+^Phillips_VisualResume\.pdf$
+^README-unnamed-chunk-2-1\.png$
