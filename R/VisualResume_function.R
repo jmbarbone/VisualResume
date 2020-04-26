@@ -102,7 +102,11 @@ VisualResume <- function(titles.left      = c("Main Title", "Sub-title", "Sub-Su
 
   # Convert factors to strings
 
-  for(i in 1:ncol(timeline)) {if(class(timeline[,i]) == "factor") {timeline[,i] <- paste(timeline[,i])}}
+  for(i in 1:ncol(timeline)) {
+    if(class(timeline[[i]]) == "factor") {
+      timeline[[i]] <- paste(timeline[[i]])
+    }
+  }
 
   # Extract some parameters
   events.selected    <- 1:nrow(events)
@@ -429,7 +433,7 @@ VisualResume <- function(titles.left      = c("Main Title", "Sub-title", "Sub-Su
         change.label.x <- TRUE
       }
       if("label.y" %in% names(timeline) == FALSE) {
-        timeline$label.x <- NA
+        timeline$label.y <- NA
         change.label.y <- TRUE
       }
       for(i in 1:nrow(timeline)) {
@@ -814,7 +818,7 @@ VisualResume <- function(titles.left      = c("Main Title", "Sub-title", "Sub-Su
           arrows(x0     = new.coord$x1,
                  y0     = new.coord$y1,
                  x1     = new.coord$x2,
-                 x2     = new.coord$y2,
+                 y1     = new.coord$y2,
                  lwd    = segment.weight,
                  length = arrow.len)
         }
